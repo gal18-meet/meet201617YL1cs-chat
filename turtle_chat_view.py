@@ -1,20 +1,62 @@
 #2016-2017 PERSONAL PROJECTS: TurtleChat!
-#WRITE YOUR NAME HERE!
+#GAL
 
 #####################################################################################
 #                                   IMPORTS                                         #
 #####################################################################################
-#import the turtle module
+import turtle 
 #import the Client class from the turtle_chat_client module
-#Finally, from the turtle_chat_widgets module, import two classes: Button and TextInput
-#####################################################################################
-#####################################################################################
+from turtle_chat_client import Client #telling that we are taking codes from...
 
+#Finally, from the turtle_chat_widgets module, import two classes: Button and TextInput
+from turtle_chat_widgets import Button , TextInput
+#####################################################################################
+#####################################################################################
+"""
+self.width=width
+        self.height=height
+        self.letters_per_line=letters_per_line
+        self.background_gif=background_gif
+        self.new_msg='' #This string stores text stream going into text ox.
+        self.pos=pos
+        self.writer=turtle.clone()
+        self.writer.hideturtle()
+        self.writer.penup()
+        #Move writer to location where text starts.
+        self.writer.goto(-self.width/2+10+self.pos[0],self.pos[1]-self.height/2+20)
+
+        #Setup listeners
+        self.setup_listeners()
+        #Draw box to surround text field
+        self.draw_box()
+"""
 #####################################################################################
 #                                   TextBox                                         #
 #####################################################################################
+class TextBox(TextInput):
+    
+    def draw_box(self):
+        box=turtle.clone()
+        box.goto(0,0)
+        box.pendown
+        box.goto(0,100)
+        box.goto(150,100)
+        box.goto(150,0)
+        box.goto(0,0)
+     
+
+    def write_msg(self):
+        
+        
+        
+        
+    
+
+    
+    
+       
 #Make a class called TextBox, which will be a subclass of TextInput.
-#Because TextInput is an abstract class, you must implement its abstract
+#Because TextInput is an abstract class, you must imp ement its abstract
 #methods.  There are two:
 #
 #draw_box
@@ -67,10 +109,10 @@
 ##################################################################
 ##################################################################
 class View:
-    _MSG_LOG_LENGTH=5 #Number of messages to retain in view
-    _SCREEN_WIDTH=300
-    _SCREEN_HEIGHT=600
-    _LINE_SPACING=round(_SCREEN_HEIGHT/2/(_MSG_LOG_LENGTH+1))
+     _MSG_LOG_LENGTH=5 #Number of messages to retain in view
+     _SCREEN_WIDTH=300
+     _SCREEN_HEIGHT=600
+     _LINE_SPACING=round(_SCREEN_HEIGHT/2/(_MSG_LOG_LENGTH+1))
 
     def __init__(self,username='Me',partner_name='Partner'):
         '''
