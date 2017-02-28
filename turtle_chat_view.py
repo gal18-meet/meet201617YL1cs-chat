@@ -53,7 +53,7 @@ class TextBox(TextInput):
     
 
     
-    
+   
        
 #Make a class called TextBox, which will be a subclass of TextInput.
 #Because TextInput is an abstract class, you must imp ement its abstract
@@ -67,14 +67,83 @@ class TextBox(TextInput):
 #will appear.
 #
 #2. All TextInput objects have an internal turtle called writer (i.e. self will
-#   have something called writer).  You can write new text with it using code like
-#
-#   self.writer.write(a_string_variable)
-#
-#   and you can erase that text using
-#
-#   self.writer.clear()
-#
+#   have something called writer).  You can w
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #3. If you want to make a newline character (i.e. go to the next line), just add
 #   \r to your string.  Test it out at the Python shell for practice
 #####################################################################################
@@ -83,6 +152,23 @@ class TextBox(TextInput):
 #####################################################################################
 #                                  SendButton                                       #
 #####################################################################################
+class SendButton (Button):
+    
+    def __init__(self,my_turtle=None, view=None,shape=None, pos=(50,-100)):
+        
+        super (SendButtom,self).__init__()
+        
+        self.view=view
+        
+    def fun (self,x=None,y=None):
+        self.view.send_msg()
+        #test
+        
+        
+
+        
+                 
+
 #Make a class called SendButton, which will be a subclass of Button.
 #Button is an abstract class with one abstract method: fun.
 #fun gets called whenever the button is clicked.  It's jobs will be to
