@@ -36,17 +36,26 @@ self.width=width
 class TextBox(TextInput):
     
     def draw_box(self):
-        box=turtle.clone()
-        box.goto(0,0)
-        box.pendown
-        box.goto(0,100)
-        box.goto(150,100)
-        box.goto(150,0)
-        box.goto(0,0)
-     
-
-    def write_msg(self):
+        self.pos(-60,-200)
+        self.width = 150
+        turtle.hideturtle()
+        self.writer=turtle.colne()
+        self.writer.penup()
+        self.writer.pensize(3)
+        self.writer.goto(self.pos)
+        self.writer.pendown()
+        self.writer.goto(self.width+80, -200)
+        self.writer.goto(self.width+80,self.height-70)
+        self.writer.goto(-60,self.height-70)
+        self.writer.goto(self.pos)
+        self.writer.pendown()
         
+      
+    def write_msg(self):
+        self.writer.penup()
+        self.writer.goto(-50,-85)
+        self.writer.clear()
+        self.new_msg=self.new_msg
         
         
         
@@ -74,76 +83,6 @@ class TextBox(TextInput):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #3. If you want to make a newline character (i.e. go to the next line), just add
 #   \r to your string.  Test it out at the Python shell for practice
 #####################################################################################
@@ -152,6 +91,7 @@ class TextBox(TextInput):
 #####################################################################################
 #                                  SendButton                                       #
 #####################################################################################
+
 class SendButton (Button):
     
     def __init__(self,my_turtle=None, view=None,shape=None, pos=(50,-100)):
@@ -162,17 +102,13 @@ class SendButton (Button):
         
     def fun (self,x=None,y=None):
         self.view.send_msg()
-        #test
         
         
-
-        
-                 
-
+    
 #Make a class called SendButton, which will be a subclass of Button.
 #Button is an abstract class with one abstract method: fun.
 #fun gets called whenever the button is clicked.  It's jobs will be to
-#
+#`                              qwwwwwwwwww
 # 1. send a message to the other chat participant - to do this,
 #    you will need to call the send method of your Client instance
 # 2. update the messages that you see on the screen
@@ -195,10 +131,10 @@ class SendButton (Button):
 ##################################################################
 ##################################################################
 class View:
-     _MSG_LOG_LENGTH=5 #Number of messages to retain in view
-     _SCREEN_WIDTH=300
-     _SCREEN_HEIGHT=600
-     _LINE_SPACING=round(_SCREEN_HEIGHT/2/(_MSG_LOG_LENGTH+1))
+    _MSG_LOG_LENGTH=5 #Number of messages to retain in view
+    _SCREEN_WIDTH=300
+    _SCREEN_HEIGHT=600
+    _LINE_SPACING=round(_SCREEN_HEIGHT/2/(_MSG_LOG_LENGTH+1))
 
     def __init__(self,username='Me',partner_name='Partner'):
         '''
