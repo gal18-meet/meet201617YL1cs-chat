@@ -36,11 +36,21 @@ self.width=width
 class TextBox(TextInput):
     
     def draw_box(self):
-        self.pos(-60,-200)
-        self.width = 150
-        turtle.hideturtle()
+
+        self.writer.goto(-self.width,100)
+        self.writer.pendown()
+        self.writer.goto(-self.width,100)
+        self.writer.goto(-self.width, -self.hieght)
+        self.writer.goto(self.width, -self.height)
+        self.writer.goto(self.width, self.height)
+        self.writer.goto(-self.width, 100)
+        
+        """
+        #self.pos(-60,-200)
+        #self.width = 150
+        #turtle.hideturtle()
         self.writer=turtle.colne()
-        self.writer.penup()
+        self.writer.pendown()
         self.writer.pensize(3)
         self.writer.goto(self.pos)
         self.writer.pendown()
@@ -48,22 +58,17 @@ class TextBox(TextInput):
         self.writer.goto(self.width+80,self.height-70)
         self.writer.goto(-60,self.height-70)
         self.writer.goto(self.pos)
-        self.writer.pendown()
-        
+        #self.writer.penup()#
+        """
       
     def write_msg(self):
-        self.writer.penup()
-        self.writer.goto(-50,-85)
-        self.writer.clear()
-        self.new_msg=self.new_msg
-        
-        
-        
-    
+        self.witer.clear()
+        self.writer.writer(self.new_msg)
 
-    
-   
-       
+
+
+
+
 #Make a class called TextBox, which will be a subclass of TextInput.
 #Because TextInput is an abstract class, you must imp ement its abstract
 #methods.  There are two:
@@ -94,15 +99,16 @@ class TextBox(TextInput):
 
 class SendButton (Button):
     
-    def __init__(self,my_turtle=None, view=None,shape=None, pos=(50,-100)):
-        
-        super (SendButtom,self).__init__()
+    def __init__(self,view, my_turtle=None, shape=None, pos=(100,-100)):
         
         self.view=view
+        super (SendButtom).__init__(my_turtle,shap,pos)
+        
         
     def fun (self,x=None,y=None):
         self.view.send_msg()
         
+            
         
     
 #Make a class called SendButton, which will be a subclass of Button.
@@ -187,7 +193,23 @@ class View:
         ###
 
     def send_msg(self):
+        self.my_client.send()
+        
+
+
+
+
+
+
+
+
+
         '''
+
+
+
+
+
         You should implement this method.  It should call the
         send() method of the Client object stored in this View
         instance.  It should also update the list of messages,
@@ -241,6 +263,7 @@ class View:
 
     def get_client(self):
         return self.my_client
+        
 ##############################################################
 ##############################################################
 
