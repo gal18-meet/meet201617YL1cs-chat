@@ -102,7 +102,7 @@ class SendButton (Button):
     def __init__(self,view, my_turtle=None, shape=None, pos=(100,-100)):
         
         self.view=view
-        super (SendButtom).__init__(my_turtle,shap,pos)
+        super (SendButton).__init__(my_turtle,shape,pos)
         
         
     def fun (self,x=None,y=None):
@@ -149,15 +149,19 @@ class View:
         '''
         ###
         #Store the username and partner_name into the instance.
+        self.username=username
+        self.partner_name=partner_name
         ###
 
         ###
         #Make a new client object and store it in this instance of View
+
+        
         #(i.e. self).  The name of the instance should be my_client
         ###
-
-        ###
-        #Set screen dimensions using turtle.setup
+         
+        self.my_client=Client()
+        ###        #Set screen dimensions using turtle.setup
         #You can get help on this function, as with other turtle functions,
         #by typing
         #
@@ -166,6 +170,7 @@ class View:
         #
         #at the Python shell.
         ###
+        
 
         ###
         #This list will store all of the messages.
@@ -226,7 +231,7 @@ class View:
     
 
     def setup_listeners(self):
-        '''
+        '''7
         Set up send button - additional listener, in addition to click,
         so that return button will send a message.
         To do this, you will use the turtle.onkeypress function.
@@ -246,13 +251,21 @@ class View:
 
         :param msg: a string containing the message received
                     - this should be displayed on the screen
+
+         
+                    
         '''
+
+        self.msg_queue.append(msg)
+        self.display_msg()
+        
         print(msg) #Debug - print message
         show_this_msg=self.partner_name+' says:\r'+ msg
         #Add the message to the queue either using insert (to put at the beginning)
         #or append (to put at the end).
         #
         #Then, call the display_msg method to update the display
+        
 
     def display_msg(self):
         '''
