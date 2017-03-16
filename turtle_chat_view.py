@@ -12,24 +12,7 @@ from turtle_chat_client import Client #telling that we are taking codes from...
 from turtle_chat_widgets import Button , TextInput
 #####################################################################################
 #####################################################################################
-"""
-self.width=width
-        self.height=height
-        self.letters_per_line=letters_per_line
-        self.background_gif=background_gif
-        self.new_msg='' #This string stores text stream going into text ox.
-        self.pos=pos
-        self.writer=turtle.clone()
-        self.writer.hideturtle()
-        self.writer.penup()
-        #Move writer to location where text starts.
-        self.writer.goto(-self.width/2+10+self.pos[0],self.pos[1]-self.height/2+20)
 
-        #Setup listeners
-        self.setup_listeners()
-        #Draw box to surround text field
-        self.draw_box()
-"""
 #####################################################################################
 #                                   TextBox                                         #
 #####################################################################################
@@ -45,21 +28,8 @@ class TextBox(TextInput):
         self.writer.goto(self.width, self.height)
         self.writer.goto(-self.width, 100)
         
-        """
-        #self.pos(-60,-200)
-        #self.width = 150
-        #turtle.hideturtle()
-        self.writer=turtle.colne()
-        self.writer.pendown()
-        self.writer.pensize(3)
-        self.writer.goto(self.pos)
-        self.writer.pendown()
-        self.writer.goto(self.width+80, -200)
-        self.writer.goto(self.width+80,self.height-70)
-        self.writer.goto(-60,self.height-70)
-        self.writer.goto(self.pos)
-        #self.writer.penup()#
-        """
+        
+       
       
     def write_msg(self):
         self.witer.clear()
@@ -187,6 +157,9 @@ class View:
         #and write messages for each
         ###
 
+        turtle.ob=turtle.clone()
+        
+
         ###
         #Create a TextBox instance and a SendButton instance and
         #Store them inside of this instance
@@ -199,6 +172,7 @@ class View:
 
     def send_msg(self):
         self.my_client.send()
+        
         
 
 
@@ -244,6 +218,12 @@ class View:
         pass
 
     def msg_received(self,msg):
+
+
+
+
+
+        
         '''
         This method is called when a new message is received.
         It should update the log (queue) of messages, and cause
@@ -256,7 +236,7 @@ class View:
                     
         '''
 
-        self.msg_queue.append(msg)
+        self.msg_queue.insert(0,msg)
         self.display_msg()
         
         print(msg) #Debug - print message
