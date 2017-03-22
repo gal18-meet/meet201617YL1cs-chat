@@ -167,7 +167,7 @@ class View:
         self.my_textbox=TextBox()
         self.my_sendbutton=SendButton()
                                    
-        
+         
         
         
     
