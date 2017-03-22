@@ -32,8 +32,8 @@ class TextBox(TextInput):
        
       
     def write_msg(self):
-        self.witer.clear()
-        self.writer.writer(self.new_msg)
+        self.writer.clear()
+        self.writer.write(self.new_msg)
 
 
 
@@ -164,6 +164,21 @@ class View:
         #Create a TextBox instance and a SendButton instance and
         #Store them inside of this instance
         ###
+        self.my_textbox=TextBox()
+        self.my_sendbutton=SendButton()
+                                   
+        
+        
+        
+    
+
+
+
+
+
+
+
+
 
         ###
         #Call your setup_listeners() function, if you have one,
